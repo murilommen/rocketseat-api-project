@@ -25,7 +25,6 @@ func (uh *UserHandler) FindAll(c *gin.Context) {
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": "The users information could not be retrieved"})
 	}
-	// TODO return user ids on each value
 	c.JSON(http.StatusOK, values)
 }
 
@@ -60,7 +59,7 @@ func (uh *UserHandler) Insert(c *gin.Context) {
 
 	userId, err := uh.storage.Create(user)
 	if err != nil {
-		// TODO would it be better to return the specific error to the user? as captured in `err`
+		// would it be better to return the specific error to the user? as captured in `err`
 		c.JSON(http.StatusInternalServerError, gin.H{"error": "There was an error while saving the user to the database"})
 	}
 
