@@ -9,3 +9,8 @@ type User struct {
 	LastName string
 	Biography string
 }
+
+type UserResponse struct {
+	Id string
+	User User
+}
